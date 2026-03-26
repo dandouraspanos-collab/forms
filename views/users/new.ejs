@@ -11,6 +11,20 @@
             First Name: 
             <input type="text" name="firstName" value ="<%= locals.firstName %>">
         </label>
+        <label for="lastName">
+            Last Name: 
+            <input type="text" name="lastName" value ="<%= locals.lastName %>">
+        </label>
+        <label for="gender">
+            Gender:
+            <input type="checkbox" name="gender" value ="Male">Male
+            <input type="checkbox" name="gender" value  ="Female">Female
+            <input type="checkbox" name="gender" value ="Other">Other
+        </label>
+        <label for="age">
+            Age:
+            <input type="number" name="age" value ="<%= locals.age %>">
+        </label>
         <button type="submit">Submit</button>
     </form>
 </body>

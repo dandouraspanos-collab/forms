@@ -3,17 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Users List</title>
 </head>
 <body>
     <H1>Our Current Users</H1>
-    <ul>
+    <table border="1">
+
+    <tr>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Gender</td>
+        <td>Age</td>
+    </tr>
+    
         <%
             let users = locals.users;
             for (user of users){ %>
-                <li><%= user.firstName %></li>
+            <tr>
+                <td><%= user.firstName%></td>
+                <td><%= user.lastName%></td>
+                <td><%= user.gender%></td>
+                <td><%= user.age%></td>
+            </tr>
+                
+
         
         <%  } %>
-    </ul>
+    </table>
 </body>
 </html>
