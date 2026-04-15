@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>Word Quiz</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
@@ -17,12 +18,21 @@
 
 <% if (questionCount === 0) { %>
     <h1>Welcome to the word quiz!</h1>
+    <h2>Score: 0 / 0</h2>
 <% } else { %>
     <h1>Score: <%= score %> / <%= questionCount %></h1>
 <% } %>
 
 <% if (locals.resultMessage) { %>
-    <h2><%= resultMessage %></h2>
+    <h2>
+        <span class="<%= resultClass %>"><%= resultMessage %></span>
+    </h2>
+<% } %>
+
+<% if (locals.correctDefinition) { %>
+    <p>
+        <strong>Correct definition:</strong> <%= correctDefinition %>
+    </p>
 <% } %>
 
 <h2><%= correctWord %> - <%= correctPart %></h2>

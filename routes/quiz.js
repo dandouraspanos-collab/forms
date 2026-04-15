@@ -8,7 +8,10 @@ router.get("/", async (req, res) => {
     res.render('quiz', {
         chosenWords,
         totalQuestions: 0,
-        totalCorrect: 0
+        totalCorrect: 0,
+        resultMessage: "",
+        resultClass: "",
+        correctDefinition: ""
     });
 });
 
@@ -19,12 +22,17 @@ router.post("/", async (req, res) => {
     totalCorrect = parseInt(totalCorrect || 0);
 
     let resultMessage = "";
+    let resultClass = "";
+    let correctDefinition = "";
 
     if (userChoice === correctDef) {
         totalCorrect++;
         resultMessage = "Correct!";
+        resultClass = "correct";
     } else {
         resultMessage = "Incorrect!";
+        resultClass = "incorrect";
+        correctDefinition = correctDef;
     }
 
     let chosenWords = await getWords();
@@ -33,7 +41,9 @@ router.post("/", async (req, res) => {
         chosenWords,
         totalQuestions,
         totalCorrect,
-        resultMessage
+        resultMessage,
+        resultClass,
+        correctDefinition
     });
 });
 
